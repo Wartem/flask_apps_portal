@@ -1,8 +1,6 @@
 ![Python](https://img.shields.io/badge/python-v3.7+-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-v2.0+-lightgrey.svg)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows-lightgrey)
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
