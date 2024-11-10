@@ -1,0 +1,131 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Apps4 Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <h1>Flask Apps Portal</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="sunIcon" class="theme-icon" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="moonIcon" class="theme-icon" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <p>Local Network Services Dashboard</p>
+
+        <div class="controls">
+            <div class="search-box">
+                <i data-lucide="search"></i>
+                <input type="text" id="searchInput" placeholder="Search services...">
+            </div>
+
+            <div class="view-and-filter">
+                <div class="view-controls">
+                    <button id="gridView" class="active" aria-label="Grid view">
+                        <i data-lucide="grid"></i>
+                    </button>
+                    <button id="listView" aria-label="List view">
+                        <i data-lucide="list"></i>
+                    </button>
+                </div>
+
+                <div class="filter-controls">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        {% for category in settings.categories %}
+                        <option value="{{ category }}">{{ category|title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services" id="servicesContainer">
+        {% for service in services %}
+        <div class="service-card" data-category="{{ service.category }}" data-tags="{{ service.tags|join(' ') }}"
+            data-name="{{ service.name|lower }}">
+            <div class="status-indicator status-{{ service.status }}">
+                {{ service.status|upper }}
+                {% if service.response_time %}
+                <span class="response-time">{{ "%.0f"|format(service.response_time) }}ms</span>
+                {% endif %}
+            </div>
+
+            <div class="service-icon">
+                <i data-lucide="{{ service.icon }}"></i>
+            </div>
+
+            <h2>{{ service.name }}</h2>
+            <p class="description">{{ service.description }}</p>
+
+            <div class="tags">
+                {% for tag in service.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+
+            <p class="last-checked">Last checked: {{ service.get('last_checked', 'Never') }}</p>
+
+            <div class="service-actions">
+                <a href="{{ service.url }}" target="_blank" class="primary-action">
+                    <i data-lucide="external-link"></i>
+                    Access Service
+                </a>
+                <button class="secondary-action copy-url" data-url="{{ service.url }}">
+                    <i data-lucide="copy"></i>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        <div class="stats">
+            <div class="stat-item">
+                <i data-lucide="server"></i>
+                <span>Total: {{ services|length }}</span>
+            </div>
+            <div class="stat-item online">
+                <i data-lucide="check-circle"></i>
+                <span>Online: {{ services|selectattr('status', 'equalto', 'online')|list|length }}</span>
+            </div>
+            <div class="stat-item offline">
+                <i data-lucide="x-circle"></i>
+                <span>Offline: {{ services|selectattr('status', 'equalto', 'offline')|list|length }}</span>
+            </div>
+        </div>
+        <p class="update-time">Last updated: {{ current_time }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

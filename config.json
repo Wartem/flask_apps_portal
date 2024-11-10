@@ -1,0 +1,75 @@
+{
+    "services": [
+        {
+            "name": "System Control Panel",
+            "url": "http://192.168.68.201:5999",
+            "description": "System monitoring and control interface",
+            "status": "online",
+            "category": "monitoring",
+            "tags": [
+                "system",
+                "control"
+            ],
+            "icon": "gauge",
+            "priority": 1,
+            "last_checked": "15:06:04",
+            "response_time": 7.301
+        },
+        {
+            "name": "LLM Chat Lite",
+            "url": "http://192.168.68.117:5012",
+            "description": "Basic LLM Chat",
+            "status": "online",
+            "category": "ai",
+            "tags": [
+                "chat",
+                "ai"
+            ],
+            "icon": "message-circle",
+            "priority": 2,
+            "last_checked": "15:06:04",
+            "response_time": 6.319
+        },
+        {
+            "name": "Media Sender",
+            "url": "http://192.168.68.201:5030",
+            "description": "Send media to Chromecast and Nest devices",
+            "status": "online",
+            "category": "media",
+            "tags": [
+                "chromecast",
+                "streaming"
+            ],
+            "icon": "cast",
+            "priority": 3,
+            "last_checked": "15:06:04",
+            "response_time": 7.952000000000001
+        },
+        {
+            "name": "Kasa Live Stream",
+            "url": "http://192.168.68.201:5005",
+            "description": "Kasa camera live stream interface",
+            "status": "online",
+            "category": "security",
+            "tags": [
+                "camera",
+                "streaming"
+            ],
+            "icon": "video",
+            "priority": 4,
+            "last_checked": "15:06:04",
+            "response_time": 7.856
+        }
+    ],
+    "settings": {
+        "refresh_interval": 60,
+        "theme": "light",
+        "layout": "grid",
+        "categories": [
+            "monitoring",
+            "ai",
+            "media",
+            "security"
+        ]
+    }
+}
