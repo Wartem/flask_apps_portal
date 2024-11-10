@@ -20,6 +20,8 @@ A local network dashboard for monitoring and managing Flask applications. This p
 
 ## Screenshots
 
+> **Note**: Screenshots show the portal with example apps. The portal is provided as-is; no additional applications are included in this repository. You'll need to configure your own services.
+
 <div align="center">
 
 | Screenshot 1 | Screenshot 2 | Screenshot 3 |
