@@ -24,7 +24,7 @@ A local network dashboard for monitoring and managing Flask applications. This p
 
 | Screenshot 1 | Screenshot 2 | Screenshot 3 |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-| ![image](https://github.com/user-attachments/assets/ec71e97f-d039-4931-97ad-228de102c9db) | ![image](https://github.com/user-attachments/assets/136f5348-1ce0-4c22-a771-06165565cc8f) | ![image](https://github.com/user-attachments/assets/6220fe10-d620-401d-aad0-0348b192926b) |
+| ![image](https://github.com/user-attachments/assets/3a822929-f2be-4481-b8ac-8a3b0f43811b) | ![image](https://github.com/user-attachments/assets/24535fea-c2c0-4a3a-97cd-357507f26f0d) | ![image](https://github.com/user-attachments/assets/737dfc03-0a6d-4e32-856d-a0f082dcbc86) |
 | Dark theme | Responsive | White theme |
 
 </div>
